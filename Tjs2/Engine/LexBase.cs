@@ -658,46 +658,46 @@ namespace Tjs2.Engine
 		public static string EscapeC(char b)
 		{
 			StringBuilder ret = new StringBuilder(16);
-            int c = b;
+            char c = b;
 			switch (c)
 			{
-				case unchecked((int)(0x07)):
+				case '\a':
 				{
 					ret.Append("\\a");
 					break;
 				}
 
-				case unchecked((int)(0x08)):
+				case '\b':
 				{
 					ret.Append("\\b");
 					break;
 				}
 
-				case unchecked((int)(0x0c)):
+				case '\f':
 				{
 					ret.Append("\\f");
 					break;
 				}
 
-				case unchecked((int)(0x0a)):
+				case '\n':
 				{
 					ret.Append("\\n");
 					break;
 				}
 
-				case unchecked((int)(0x0d)):
+				case '\r':
 				{
 					ret.Append("\\r");
 					break;
 				}
 
-				case unchecked((int)(0x09)):
+				case '\t':
 				{
 					ret.Append("\\t");
 					break;
 				}
 
-				case unchecked((int)(0x0b)):
+				case '\v':
 				{
 					ret.Append("\\v");
 					break;
@@ -723,7 +723,7 @@ namespace Tjs2.Engine
 
 				default:
 				{
-					if (c < unchecked((int)(0x20)))
+					if (c < 0x20)
 					{
 						ret.Append("\\x");
 						ret.Append(Sharpen.Extensions.ToHexString((int)c));
@@ -740,89 +740,89 @@ namespace Tjs2.Engine
 
 		public static string EscapeC(string str)
 		{
-			int count = str.Length;
-			StringBuilder ret = new StringBuilder(count * 2);
-			for (int i = 0; i < count; i++)
-			{
-				int c = str[i];
-				switch (c)
-				{
-					case unchecked((int)(0x07)):
-					{
-						ret.Append("\\a");
-						break;
-					}
+            int count = str.Length;
+            StringBuilder ret = new StringBuilder(count * 2);
+            for (int i = 0; i < count; i++)
+            {
+                char c = str[i]; //FIXED
+                switch (c)
+                {
+                    case '\a':
+                        {
+                            ret.Append("\\a");
+                            break;
+                        }
 
-					case unchecked((int)(0x08)):
-					{
-						ret.Append("\\b");
-						break;
-					}
+                    case '\b':
+                        {
+                            ret.Append("\\b");
+                            break;
+                        }
 
-					case unchecked((int)(0x0c)):
-					{
-						ret.Append("\\f");
-						break;
-					}
+                    case '\f':
+                        {
+                            ret.Append("\\f");
+                            break;
+                        }
 
-					case unchecked((int)(0x0a)):
-					{
-						ret.Append("\\n");
-						break;
-					}
+                    case '\n':
+                        {
+                            ret.Append("\\n");
+                            break;
+                        }
 
-					case unchecked((int)(0x0d)):
-					{
-						ret.Append("\\r");
-						break;
-					}
+                    case '\r':
+                        {
+                            ret.Append("\\r");
+                            break;
+                        }
 
-					case unchecked((int)(0x09)):
-					{
-						ret.Append("\\t");
-						break;
-					}
+                    case '\t':
+                        {
+                            ret.Append("\\t");
+                            break;
+                        }
 
-					case unchecked((int)(0x0b)):
-					{
-						ret.Append("\\v");
-						break;
-					}
+                    case '\v':
+                        {
+                            ret.Append("\\v");
+                            break;
+                        }
 
-					case '\\':
-					{
-						ret.Append("\\\\");
-						break;
-					}
+                    case '\\':
+                        {
+                            ret.Append("\\\\");
+                            break;
+                        }
 
-					case '\'':
-					{
-						ret.Append("\\\'");
-						break;
-					}
+                    case '\'':
+                        {
+                            ret.Append("\\\'");
+                            break;
+                        }
 
-					case '\"':
-					{
-						ret.Append("\\\"");
-						break;
-					}
+                    case '\"':
+                        {
+                            ret.Append("\\\"");
+                            break;
+                        }
 
-					default:
-					{
-						if (c < unchecked((int)(0x20)))
-						{
-							ret.Append("\\x");
-							ret.Append(Sharpen.Extensions.ToHexString((int)c));
-						}
-						else
-						{
-							ret.Append(c);
-						}
-						break;
-					}
-				}
-			}
-			return ret.ToString();
-		}
+                    default:
+                        {
+                            if (c < (char)0x20)
+                            {
+                                ret.Append("\\x");
+                                ret.Append(Sharpen.Extensions.ToHexString(c));
+                            }
+                            else
+                            {
+                                ret.Append(c);
+                            }
+                            break;
+                        }
+                }
+            }
+            return ret.ToString();
+        }
 	}
 }

@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tjs2Uwp", "Tjs2Uwp\Tjs2Uwp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tjs2Disassembler", "Tjs2Disassembler\Tjs2Disassembler.csproj", "{008C53BE-3787-4671-AC14-4C18194BD916}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tjs2Executor", "Tjs2Executor\Tjs2Executor.csproj", "{B8BD9668-D779-438B-8E44-4DECE1A02BD9}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		KagSharp\KagSharp.projitems*{11e82dda-9168-44dd-8f68-806ded443200}*SharedItemsImports = 13
@@ -156,6 +158,30 @@ Global
 		{008C53BE-3787-4671-AC14-4C18194BD916}.Release|x64.Build.0 = Release|Any CPU
 		{008C53BE-3787-4671-AC14-4C18194BD916}.Release|x86.ActiveCfg = Release|Any CPU
 		{008C53BE-3787-4671-AC14-4C18194BD916}.Release|x86.Build.0 = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|.NET.Build.0 = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|ARM.Build.0 = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|UWP.ActiveCfg = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|UWP.Build.0 = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|x64.Build.0 = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Debug|x86.Build.0 = Debug|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|.NET.ActiveCfg = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|.NET.Build.0 = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|ARM.Build.0 = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|UWP.ActiveCfg = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|UWP.Build.0 = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|x64.ActiveCfg = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|x64.Build.0 = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|x86.ActiveCfg = Release|Any CPU
+		{B8BD9668-D779-438B-8E44-4DECE1A02BD9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

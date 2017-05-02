@@ -343,7 +343,7 @@ namespace Tjs2.Engine
 				if (v != null)
 				{
 					ConsoleOutput(string.Empty, this);
-					string ptr = string.Format(" 0x%08X", v.GetHashCode());
+					string ptr = $" 0x{v.GetHashCode():X08}";
 					ConsoleOutput("(" + v.GetContextTypeName() + ") " + v.GetName() + ptr, this);
 					v.Disassemble(this, 0, 0);
 				}

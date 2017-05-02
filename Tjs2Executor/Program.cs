@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Kirikiri.TjSharp;
+using System.Text;
+using System.Threading.Tasks;
 using Tjs2;
 using Tjs2.Engine;
 using Tjs2.Sharper;
 
-namespace Tjs2Disassembler
+namespace Tjs2Executor
 {
     class Program
     {
@@ -14,7 +16,7 @@ namespace Tjs2Disassembler
         private static readonly DebugConsoleOutput ConsoleOutput = new DebugConsoleOutput();
         static void Main(string[] args)
         {
-            Console.WriteLine("Krkr# TJS2 Disassembler by Ulysses");
+            Console.WriteLine("Krkr# Tjs2 Disassembler by Ulysses");
             if (args.Length <= 0)
             {
                 args = new[] { Directory.GetCurrentDirectory() };
@@ -39,14 +41,14 @@ namespace Tjs2Disassembler
                         Dump(loader, scriptEngine, initScript);
                         list.Remove(initScript);
                     }
-                    
+
                     initScript = list.FirstOrDefault(n => n.Contains("initialize.tjs"));
                     if (!string.IsNullOrWhiteSpace(initScript))
                     {
                         Dump(loader, scriptEngine, initScript);
                         list.Remove(initScript);
                     }
-                    
+
                     foreach (var scripts in list)
                     {
                         Dump(loader, scriptEngine, scripts);
@@ -64,28 +66,5 @@ namespace Tjs2Disassembler
             Tjs.FinalizeApplication();
         }
 
-        static void Dump(TjsByteCodeLoader loader, Tjs engine, string path)
-        {
-            _count++;
-            var fileOutput = new FileLogOutput(path + "asm");
-            Tjs.SetConsoleOutput(fileOutput);
-            using (var fs = new FileStream(path, FileMode.Open))
-            {
-                TjsBinaryStream stream = new TjsBinaryStream(fs);
-                try
-                {
-                    var scriptBlock = loader.ReadByteCode(engine, Path.GetFileNameWithoutExtension(path), stream);
-                    scriptBlock.Dump();
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine($"Loading {path} failed.");
-                    _count--;
-                }
-            }
-            Tjs.SetConsoleOutput(ConsoleOutput);
-            fileOutput.Dispose();
-
-        }
     }
 }
