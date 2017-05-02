@@ -8,6 +8,7 @@ using Tjs2;
 using Tjs2.Engine;
 using Tjs2.Sharper;
 
+// Still In Dev
 namespace Tjs2Executor
 {
     class Program
@@ -16,10 +17,11 @@ namespace Tjs2Executor
         private static readonly DebugConsoleOutput ConsoleOutput = new DebugConsoleOutput();
         static void Main(string[] args)
         {
-            Console.WriteLine("Krkr# Tjs2 Disassembler by Ulysses");
+            Console.WriteLine("Krkr# Tjs2 Executor by Ulysses");
             if (args.Length <= 0)
             {
-                args = new[] { Directory.GetCurrentDirectory() };
+                args = new[] {"frameview.tjs"};
+                //args = new[] { Directory.GetCurrentDirectory() };
             }
 
             Tjs.mStorage = null;
@@ -29,7 +31,7 @@ namespace Tjs2Executor
 
             Dispatch2 dsp = scriptEngine.GetGlobal();
             TjsByteCodeLoader loader = new TjsByteCodeLoader();
-
+            
             foreach (string s in args)
             {
                 if (Directory.Exists(s)) //disasm dir
@@ -38,25 +40,27 @@ namespace Tjs2Executor
                     var initScript = list.FirstOrDefault(n => n.Contains("startup.tjs"));
                     if (!string.IsNullOrWhiteSpace(initScript))
                     {
-                        Dump(loader, scriptEngine, initScript);
+                        Execute(loader, scriptEngine, initScript);
                         list.Remove(initScript);
                     }
 
                     initScript = list.FirstOrDefault(n => n.Contains("initialize.tjs"));
                     if (!string.IsNullOrWhiteSpace(initScript))
                     {
-                        Dump(loader, scriptEngine, initScript);
+                        Execute(loader, scriptEngine, initScript);
                         list.Remove(initScript);
                     }
 
                     foreach (var scripts in list)
                     {
-                        Dump(loader, scriptEngine, scripts);
+                        var ret = Execute(loader, scriptEngine, scripts);
+                        Console.WriteLine($"ret: {ret}");
                     }
                 }
                 else if (File.Exists(s) && s.ToLowerInvariant().EndsWith(".tjs"))
                 {
-                    Dump(loader, scriptEngine, s);
+                    var ret = Execute(loader, scriptEngine, s);
+                    Console.WriteLine($"ret: {ret}");
                 }
             }
 
@@ -66,5 +70,28 @@ namespace Tjs2Executor
             Tjs.FinalizeApplication();
         }
 
+        static Variant Execute(TjsByteCodeLoader loader, Tjs engine, string path)
+        {
+            using (var fs = new FileStream(path, FileMode.Open))
+            {
+                TjsBinaryStream stream = new TjsBinaryStream(fs);
+                try
+                {
+                    var ret = new Variant();
+                    Dispatch2 dsp = engine.GetGlobal();
+                    engine.LoadByteCode(ret, dsp, Path.GetFileNameWithoutExtension(path), stream);
+                }
+                catch (TjsScriptError ex)
+                {
+                    Console.WriteLine(ex);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Execute {path} failed.");
+                    _count--;
+                }
+            }
+            return null;
+        }
     }
 }

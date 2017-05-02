@@ -101,7 +101,7 @@ namespace Tjs2
 			Variant.Initialize();
 			DictionaryObject.Initialize();
 			ArrayObject.Initialize();
-			ByteCodeLoader.Initialize();
+			TjsByteCodeLoader.Initialize();
 			CustomObject.Initialize();
 			MathClass.Initialize();
 			LexicalAnalyzer.Initialize();
@@ -131,7 +131,7 @@ namespace Tjs2
 			mVAPool = null;
 			NULL_ARG = null;
 			ArrayObject.FinalizeApplication();
-			ByteCodeLoader.FinalizeApplication();
+			TjsByteCodeLoader.FinalizeApplication();
 			CustomObject.FinalizeApplication();
 			DictionaryObject.FinalizeApplication();
 			MathClass.FinalizeApplication();
@@ -353,7 +353,7 @@ namespace Tjs2
 		public virtual void LoadByteCode(Variant result, Dispatch2 context, string name, 
 			BinaryStream input)
 		{
-			var loader = new ByteCodeLoader();
+			var loader = new TjsByteCodeLoader();
 			ScriptBlock block = loader.ReadByteCode(this, name, input);
 			block.ExecuteTopLevel(result, context);
 			if (block.GetContextCount() == 0)

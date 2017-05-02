@@ -7,10 +7,15 @@ using Tjs2.NativeApi;
 
 namespace Tjs2.Engine
 {
-	public class Utils
+	public static class Utils
 	{
-		/// <exception cref="VariantException"></exception>
-		public static string VariantToReadableString(Variant val)
+        public static string ToRealString(this char[] chars)
+        {
+            return new string(chars);
+        }
+
+        /// <exception cref="VariantException"></exception>
+        public static string VariantToReadableString(Variant val)
 		{
 			return VariantToReadableString(val, 512);
 		}

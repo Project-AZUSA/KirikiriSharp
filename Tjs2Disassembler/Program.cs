@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using Kirikiri.TjSharp;
 using Tjs2;
 using Tjs2.Engine;
 using Tjs2.Sharper;

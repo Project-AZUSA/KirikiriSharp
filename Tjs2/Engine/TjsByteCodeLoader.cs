@@ -2,13 +2,13 @@
 using System.IO;
 using Tjs2.Engine;
 using Tjs2.Sharpen;
-using Error = Tjs2.Sharpen.Error;
 
-namespace Tjs2.Sharper
+namespace Tjs2
 {
     /// <summary>
     /// A better implemented ByteCodeLoader rather than the silly Sharpen one
     /// </summary>
+    //Moved from Tjs2.Sharper
     public class TjsByteCodeLoader
     {
         private const bool LOAD_SRC_POS = false;
@@ -82,7 +82,7 @@ namespace Tjs2.Sharper
         {
             public InterCodeObject[] mObjs;
 
-            public AList<ByteCodeLoader.VariantRepalace> mWork;
+            public AList<VariantRepalace> mWork;
 
             public int[] mParent;
 
@@ -106,7 +106,7 @@ namespace Tjs2.Sharper
                 }
                 if (mWork == null)
                 {
-                    mWork = new AList<ByteCodeLoader.VariantRepalace>();
+                    mWork = new AList<VariantRepalace>();
                 }
                 mWork.Clear();
                 if (mObjs == null || mObjs.Length < count)
@@ -132,7 +132,7 @@ namespace Tjs2.Sharper
             }
         }
 
-        private static ByteCodeLoader.ObjectsCache mObjectsCache;
+        private static ObjectsCache mObjectsCache;
 
         public static void Initialize()
         {
@@ -146,7 +146,7 @@ namespace Tjs2.Sharper
             mDoubleTmpArray = null;
             mStringArray = null;
             mByteBufferArray = null;
-            mObjectsCache = new ByteCodeLoader.ObjectsCache();
+            mObjectsCache = new ObjectsCache();
             mVariantTypeData = null;
         }
 
@@ -281,7 +281,7 @@ namespace Tjs2.Sharper
 
             mObjectsCache.Create(objcount);
             InterCodeObject[] objs = mObjectsCache.mObjs;
-            AList<ByteCodeLoader.VariantRepalace> work = mObjectsCache.mWork;
+            AList<VariantRepalace> work = mObjectsCache.mWork;
             int[] parent = mObjectsCache.mParent;
             int[] propSetter = mObjectsCache.mPropSetter;
             int[] propGetter = mObjectsCache.mPropGetter;
@@ -373,7 +373,7 @@ namespace Tjs2.Sharper
                         case TYPE_INTER_OBJECT:
                         {
                             tmp = new Variant();
-                            work.AddItem(new ByteCodeLoader.VariantRepalace(tmp, index));
+                            work.AddItem(new VariantRepalace(tmp, index));
                             vdata[i] = tmp;
                             break;
                         }
@@ -381,7 +381,7 @@ namespace Tjs2.Sharper
                         case TYPE_INTER_GENERATOR:
                         {
                             tmp = new Variant();
-                            work.AddItem(new ByteCodeLoader.VariantRepalace(tmp, index));
+                            work.AddItem(new VariantRepalace(tmp, index));
                             vdata[i] = tmp;
                             break;
                         }
@@ -509,7 +509,7 @@ namespace Tjs2.Sharper
             }
             for (int i = 0; i < work.Count; i++)
             {
-                ByteCodeLoader.VariantRepalace w = work[i];
+                VariantRepalace w = work[i];
                 w.Work.Set(objs[w.Index]);
             }
             work.Clear();
@@ -660,6 +660,74 @@ namespace Tjs2.Sharper
                     }
                 }
             }
+        }
+    }
+
+    /// <summary>InterCodeObject へ置换するために一时的に觉えておくクラス</summary>
+    internal class VariantRepalace
+    {
+        public Variant Work;
+
+        public int Index;
+
+        public VariantRepalace(Variant w, int i)
+        {
+            Work = w;
+            Index = i;
+        }
+    }
+
+    internal class ObjectsCache
+    {
+        public InterCodeObject[] mObjs;
+
+        public AList<VariantRepalace> mWork;
+
+        public int[] mParent;
+
+        public int[] mPropSetter;
+
+        public int[] mPropGetter;
+
+        public int[] mSuperClassGetter;
+
+        public int[][] mProperties;
+
+        private const int MIN_COUNT = 500;
+
+        // temporary
+        //static private final int MIN_VARIANT_DATA_COUNT = 400*2;
+        public virtual void Create(int count)
+        {
+            if (count < MIN_COUNT)
+            {
+                count = MIN_COUNT;
+            }
+            if (mWork == null)
+            {
+                mWork = new AList<VariantRepalace>();
+            }
+            mWork.Clear();
+            if (mObjs == null || mObjs.Length < count)
+            {
+                mObjs = new InterCodeObject[count];
+                mParent = new int[count];
+                mPropSetter = new int[count];
+                mPropGetter = new int[count];
+                mSuperClassGetter = new int[count];
+                mProperties = new int[count][];
+            }
+        }
+
+        public virtual void Release()
+        {
+            mWork = null;
+            mObjs = null;
+            mParent = null;
+            mPropSetter = null;
+            mPropGetter = null;
+            mSuperClassGetter = null;
+            mProperties = null;
         }
     }
 }

@@ -38,7 +38,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)NativeApi\NativeInstance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NativeApi\NativeInstanceObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\BinaryStream.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Engine\ByteCodeLoader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\CompileException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\Compiler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Engine\CompileState.cs" />
@@ -214,7 +213,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Sharper\FileLogOutput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sharper\Helper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sharper\TjsBinaryStream.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Sharper\TjsByteCodeLoader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Engine\TjsByteCodeLoader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tjs.cs" />
   </ItemGroup>
 </Project>

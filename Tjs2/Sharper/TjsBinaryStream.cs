@@ -3,7 +3,7 @@ using System.IO;
 using Tjs2.Engine;
 using Tjs2.Sharpen;
 
-namespace Kirikiri.TjSharp
+namespace Tjs2.Sharper
 {
     public class TjsBinaryStream : BinaryStream, IDisposable
     {
