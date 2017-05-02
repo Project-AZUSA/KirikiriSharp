@@ -616,6 +616,10 @@ namespace Tjs2.NativeApi
 
 		private void DeleteAllMembers()
 		{
+            if (mSymbols == null)
+            {
+                return;
+            }
 			// delete all members
 			//Vector<Dispatch2> vector = new Vector<Dispatch2>();
 			//try {

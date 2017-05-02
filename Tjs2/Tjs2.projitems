@@ -210,6 +210,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Sharpen\WrappedSystemStream.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sharpen\X509Certificate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sharpen\X509TrustManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sharper\DebugConsoleOutput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sharper\FileLogOutput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sharper\Helper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sharper\TjsBinaryStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Sharper\TjsByteCodeLoader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tjs.cs" />
   </ItemGroup>
 </Project>
