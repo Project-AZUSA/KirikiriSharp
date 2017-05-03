@@ -28,8 +28,9 @@ namespace Tjs2.NativeApi.Internal
 		/// <exception cref="TjsException"></exception>
 		public DictionaryClass() : base(CLASS_NAME)
 		{
-			// constructor
-			RegisterNCM(CLASS_NAME, new _NativeClassConstructor_24(), CLASS_NAME, Interface.nitMethod
+		    ClassID = Tjs.FindNativeClassId(CLASS_NAME);
+            // constructor
+            RegisterNCM(CLASS_NAME, new _NativeClassConstructor_24(), CLASS_NAME, Interface.nitMethod
 				, Interface.STATICMEMBER);
 			RegisterNCM("load", new _NativeClassMethod_36(), CLASS_NAME, Interface.nitMethod, 
 				Interface.STATICMEMBER);

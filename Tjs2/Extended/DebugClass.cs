@@ -23,8 +23,9 @@ namespace Tjs2.Extended
 		/// <exception cref="TjsException"></exception>
 		public DebugClass() : base(CLASS_NAME)
 		{
-			// constructor
-			RegisterNCM(CLASS_NAME, new ReturnOKConstructor(), CLASS_NAME, Interface.nitMethod
+            ClassID = Tjs.FindNativeClassId(CLASS_NAME);
+            // constructor
+            RegisterNCM(CLASS_NAME, new ReturnOKConstructor(), CLASS_NAME, Interface.nitMethod
 				, 0);
 			RegisterNCM("finalize", new ReturnOKMethod(), CLASS_NAME, Interface.nitMethod, 
 				0);

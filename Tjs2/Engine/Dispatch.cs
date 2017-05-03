@@ -308,7 +308,7 @@ namespace Tjs2.Engine
 			return Error.E_NOTIMPL;
 		}
 
-		public virtual int AddClassInstanveInfo(string name)
+		public virtual int AddClassInstanceInfo(string name)
 		{
 			return Error.E_NOTIMPL;
 		}

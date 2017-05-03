@@ -11,7 +11,7 @@ namespace Tjs2.NativeApi.Internal
 {
 	public class RegExpClass : NativeClass
 	{
-		public static int mClassID = -1;
+		public static int ClassID = -1;
 
 		public static Variant mLastRegExp;
 
@@ -172,8 +172,9 @@ namespace Tjs2.NativeApi.Internal
 		/// <exception cref="TjsException"></exception>
 		public RegExpClass() : base(CLASS_NAME)
 		{
-			// constructor
-			RegisterNCM(CLASS_NAME, new _NativeClassConstructor_132(), CLASS_NAME, Interface.
+            ClassID = Tjs.FindNativeClassId(CLASS_NAME);
+            // constructor
+            RegisterNCM(CLASS_NAME, new _NativeClassConstructor_132(), CLASS_NAME, Interface.
 				nitMethod, 0);
 			RegisterNCM("finalize", new _NativeClassMethod_147(), CLASS_NAME, Interface.nitMethod
 				, 0);
@@ -226,7 +227,7 @@ namespace Tjs2.NativeApi.Internal
 			protected internal override int Process(Variant result, Variant[] param, Dispatch2
 				 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -268,7 +269,7 @@ namespace Tjs2.NativeApi.Internal
 			protected internal override int Process(Variant result, Variant[] param, Dispatch2
 				 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -293,7 +294,7 @@ namespace Tjs2.NativeApi.Internal
 			protected internal override int Process(Variant result, Variant[] param, Dispatch2
 				 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -355,7 +356,7 @@ namespace Tjs2.NativeApi.Internal
 			protected internal override int Process(Variant result, Variant[] param, Dispatch2
 				 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -386,7 +387,7 @@ namespace Tjs2.NativeApi.Internal
 			protected internal override int Process(Variant result, Variant[] param, Dispatch2
 				 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -418,7 +419,7 @@ namespace Tjs2.NativeApi.Internal
 			protected internal override int Process(Variant result, Variant[] param, Dispatch2
 				 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -449,7 +450,7 @@ namespace Tjs2.NativeApi.Internal
 			protected internal override int Process(Variant result, Variant[] param, Dispatch2
 				 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -531,7 +532,7 @@ namespace Tjs2.NativeApi.Internal
 			protected internal override int Process(Variant result, Variant[] param, Dispatch2
 				 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -565,7 +566,7 @@ namespace Tjs2.NativeApi.Internal
 
 			public override int Get(Variant result, Dispatch2 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -589,7 +590,7 @@ namespace Tjs2.NativeApi.Internal
 
 			public override int Get(Variant result, Dispatch2 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -602,7 +603,7 @@ namespace Tjs2.NativeApi.Internal
 			/// <exception cref="VariantException"></exception>
 			public override int Set(Variant param, Dispatch2 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -621,7 +622,7 @@ namespace Tjs2.NativeApi.Internal
 
 			public override int Get(Variant result, Dispatch2 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -645,7 +646,7 @@ namespace Tjs2.NativeApi.Internal
 
 			public override int Get(Variant result, Dispatch2 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -669,7 +670,7 @@ namespace Tjs2.NativeApi.Internal
 
 			public override int Get(Variant result, Dispatch2 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -693,7 +694,7 @@ namespace Tjs2.NativeApi.Internal
 
 			public override int Get(Variant result, Dispatch2 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -717,7 +718,7 @@ namespace Tjs2.NativeApi.Internal
 
 			public override int Get(Variant result, Dispatch2 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -741,7 +742,7 @@ namespace Tjs2.NativeApi.Internal
 
 			public override int Get(Variant result, Dispatch2 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{
@@ -765,7 +766,7 @@ namespace Tjs2.NativeApi.Internal
 
 			public override int Get(Variant result, Dispatch2 objthis)
 			{
-				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.mClassID
+				RegExpNI _this = (RegExpNI)objthis.GetNativeInstance(RegExpClass.ClassID
 					);
 				if (_this == null)
 				{

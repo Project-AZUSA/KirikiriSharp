@@ -10,7 +10,6 @@ namespace Tjs2.Extended
     {
         private const string CLASS_NAME = "MathEx";
         
-
         public MathExClass() : base(CLASS_NAME)
         {
             RegisterNCM(CLASS_NAME, new MathExConstructorMethod(), CLASS_NAME, Interface.nitMethod, 0);

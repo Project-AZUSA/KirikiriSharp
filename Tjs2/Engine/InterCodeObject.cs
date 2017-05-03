@@ -1587,7 +1587,7 @@ namespace Tjs2.Engine
             if (dsp != null)
             {
                 //dsp.classInstanceInfo( Interface.CII_ADD, 0, ra[ra_offset+mCode[code+2]] );
-                dsp.AddClassInstanveInfo(ra[ra_offset + ca[code + 2]].AsString());
+                dsp.AddClassInstanceInfo(ra[ra_offset + ca[code + 2]].AsString());
             }
         }
 

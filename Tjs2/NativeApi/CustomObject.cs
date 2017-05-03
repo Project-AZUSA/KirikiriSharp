@@ -1718,7 +1718,7 @@ namespace Tjs2.NativeApi
 			return Error.E_NOTIMPL;
 		}
 
-		public override int AddClassInstanveInfo(string name)
+		public override int AddClassInstanceInfo(string name)
 		{
 			mClassNames.AddItem(name);
 			return Error.S_OK;

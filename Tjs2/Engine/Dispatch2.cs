@@ -130,7 +130,7 @@ namespace Tjs2.Engine
 		int ClassInstanceInfo(int flag, int num, Variant value);
 
 		// special funcsion
-		int AddClassInstanveInfo(string name);
+		int AddClassInstanceInfo(string name);
 
 		// special funcsion
 		NativeInstance GetNativeInstance(int classid);

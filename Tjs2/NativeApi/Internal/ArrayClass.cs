@@ -72,8 +72,9 @@ namespace Tjs2.NativeApi.Internal
 		/// <exception cref="TjsException"></exception>
 		public ArrayClass() : base(CLASS_NAME)
 		{
-			// constructor
-			RegisterNCM(CLASS_NAME, new _NativeClassConstructor_62(), CLASS_NAME, Interface.nitMethod
+            ClassID = Tjs.FindNativeClassId(CLASS_NAME);
+            // constructor
+            RegisterNCM(CLASS_NAME, new _NativeClassConstructor_62(), CLASS_NAME, Interface.nitMethod
 				, 0);
 			RegisterNCM("load", new _NativeClassMethod_74(), CLASS_NAME, Interface.nitMethod, 
 				0);
@@ -421,7 +422,7 @@ namespace Tjs2.NativeApi.Internal
 					VariantClosure clo = param[0].AsObjectClosure();
 					if (clo.mObject != null)
 					{
-						if ((re = (RegExpNI)clo.mObject.GetNativeInstance(RegExpClass.mClassID)) != null)
+						if ((re = (RegExpNI)clo.mObject.GetNativeInstance(RegExpClass.ClassID)) != null)
 						{
 							Holder<Dispatch2> array = new Holder<Dispatch2>(objthis);
 							re.Split(array, @string, purgeempty);

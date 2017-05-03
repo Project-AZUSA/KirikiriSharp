@@ -20,8 +20,8 @@ namespace Tjs2Executor
             Console.WriteLine("Krkr# Tjs2 Executor by Ulysses");
             if (args.Length <= 0)
             {
-                args = new[] {"frameview.tjs"};
-                //args = new[] { Directory.GetCurrentDirectory() };
+                //args = new[] {"frameview.tjs"};
+                args = new[] { Directory.GetCurrentDirectory() };
             }
 
             Tjs.mStorage = null;
@@ -80,6 +80,11 @@ namespace Tjs2Executor
                     var ret = new Variant();
                     Dispatch2 dsp = engine.GetGlobal();
                     engine.LoadByteCode(ret, dsp, Path.GetFileNameWithoutExtension(path), stream);
+                    //dsp.PropGet(0, "FrameView", ret, dsp);
+                    //var obj = ret.AsObject();
+                    //var r = obj.FuncCall(0, null, ret, null, obj);
+                    //r = obj.FuncCall(0, "FrameView", ret, null, obj);
+                    return ret;
                 }
                 catch (TjsScriptError ex)
                 {

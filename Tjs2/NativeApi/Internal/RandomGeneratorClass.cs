@@ -8,7 +8,7 @@ namespace Tjs2.NativeApi.Internal
 {
 	public class RandomGeneratorClass : NativeClass
 	{
-		public static int mClassID;
+		public static int ClassID;
 
 		private static readonly string CLASS_NAME = "RandomGenerator";
 
@@ -21,8 +21,9 @@ namespace Tjs2.NativeApi.Internal
 		/// <exception cref="TjsException"></exception>
 		public RandomGeneratorClass() : base(CLASS_NAME)
 		{
-			// constructor
-			RegisterNCM(CLASS_NAME, new _NativeClassConstructor_24(), CLASS_NAME, Interface.nitMethod
+            ClassID = Tjs.FindNativeClassId(CLASS_NAME);
+            // constructor
+            RegisterNCM(CLASS_NAME, new _NativeClassConstructor_24(), CLASS_NAME, Interface.nitMethod
 				, 0);
 			RegisterNCM("finalize", new _NativeClassMethod_37(), CLASS_NAME, Interface.nitMethod
 				, 0);
@@ -63,7 +64,7 @@ namespace Tjs2.NativeApi.Internal
 				 objthis)
 			{
 				RandomGeneratorNI _this = (RandomGeneratorNI)objthis.GetNativeInstance(RandomGeneratorClass
-					.mClassID);
+					.ClassID);
 				if (_this == null)
 				{
 					return Error.E_NATIVECLASSCRASH;
@@ -102,7 +103,7 @@ namespace Tjs2.NativeApi.Internal
 				 objthis)
 			{
 				RandomGeneratorNI _this = (RandomGeneratorNI)objthis.GetNativeInstance(RandomGeneratorClass
-					.mClassID);
+					.ClassID);
 				if (_this == null)
 				{
 					return Error.E_NATIVECLASSCRASH;
@@ -123,7 +124,7 @@ namespace Tjs2.NativeApi.Internal
 				 objthis)
 			{
 				RandomGeneratorNI _this = (RandomGeneratorNI)objthis.GetNativeInstance(RandomGeneratorClass
-					.mClassID);
+					.ClassID);
 				if (_this == null)
 				{
 					return Error.E_NATIVECLASSCRASH;
@@ -151,7 +152,7 @@ namespace Tjs2.NativeApi.Internal
 				 objthis)
 			{
 				RandomGeneratorNI _this = (RandomGeneratorNI)objthis.GetNativeInstance(RandomGeneratorClass
-					.mClassID);
+					.ClassID);
 				if (_this == null)
 				{
 					return Error.E_NATIVECLASSCRASH;
@@ -179,7 +180,7 @@ namespace Tjs2.NativeApi.Internal
 				 objthis)
 			{
 				RandomGeneratorNI _this = (RandomGeneratorNI)objthis.GetNativeInstance(RandomGeneratorClass
-					.mClassID);
+					.ClassID);
 				if (_this == null)
 				{
 					return Error.E_NATIVECLASSCRASH;
@@ -207,7 +208,7 @@ namespace Tjs2.NativeApi.Internal
 				 objthis)
 			{
 				RandomGeneratorNI _this = (RandomGeneratorNI)objthis.GetNativeInstance(RandomGeneratorClass
-					.mClassID);
+					.ClassID);
 				if (_this == null)
 				{
 					return Error.E_NATIVECLASSCRASH;
@@ -235,7 +236,7 @@ namespace Tjs2.NativeApi.Internal
 				 objthis)
 			{
 				RandomGeneratorNI _this = (RandomGeneratorNI)objthis.GetNativeInstance(RandomGeneratorClass
-					.mClassID);
+					.ClassID);
 				// インスタンス所得
 				if (_this == null)
 				{

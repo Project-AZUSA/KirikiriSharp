@@ -8,7 +8,7 @@ namespace Tjs2.NativeApi.Internal
 {
 	public class ExceptionClass : NativeClass
 	{
-		public static int mClassID = -1;
+		public static int ClassID = -1;
 
 		private static readonly string CLASS_NAME = "Exception";
 
@@ -16,8 +16,9 @@ namespace Tjs2.NativeApi.Internal
 		/// <exception cref="TjsException"></exception>
 		public ExceptionClass() : base(CLASS_NAME)
 		{
-			// constructor
-			RegisterNCM(CLASS_NAME, new _NativeClassConstructor_15(), CLASS_NAME, Interface.nitMethod
+            ClassID = Tjs.FindNativeClassId(CLASS_NAME);
+            // constructor
+            RegisterNCM(CLASS_NAME, new _NativeClassConstructor_15(), CLASS_NAME, Interface.nitMethod
 				, 0);
 			RegisterNCM("finalize", new _NativeClassMethod_38(), CLASS_NAME, Interface.nitMethod
 				, 0);

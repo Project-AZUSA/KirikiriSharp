@@ -132,7 +132,7 @@ namespace Tjs2.Engine.Translate
 		{
 			if (dsp != null)
 			{
-				dsp.AddClassInstanveInfo(className);
+				dsp.AddClassInstanceInfo(className);
 			}
 		}
 

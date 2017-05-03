@@ -131,7 +131,7 @@ namespace Tjs2.NativeApi
 				return base.FuncCall(flag, membername, result, param, objthis);
 			}
 			// 生成を高速化するためにメンバコピーを特别处理する形で实装
-			objthis.AddClassInstanveInfo(ClassName);
+			objthis.AddClassInstanceInfo(ClassName);
 			NativeInstance nativeptr = CreateNativeInstance();
 			objthis.SetNativeInstance(ClassId, nativeptr);
 			int hr = CopyAllMembers((CustomObject)objthis);
@@ -152,7 +152,7 @@ namespace Tjs2.NativeApi
 			// instance initialization
 			//int hr = funcCall( 0, null, null, null, dsp); // add member to dsp
 			// 生成を高速化するためにメンバコピーを特别处理する形で实装
-			dsp.AddClassInstanveInfo(ClassName);
+			dsp.AddClassInstanceInfo(ClassName);
 			NativeInstance nativeptr = CreateNativeInstance();
 			dsp.SetNativeInstance(ClassId, nativeptr);
 			int hr = CopyAllMembers((CustomObject)dsp);
