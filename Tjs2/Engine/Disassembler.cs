@@ -3,6 +3,7 @@
  * 
  * A really workable Disassembler rather than that stupid Sharpen one.
  * My hands broke after refactored this. ---Ulysses
+ * REF: http://hydrozoa.felisworks.com/doc/tjs2doc/contents/vmcodes.html
  */
 
 namespace Tjs2.Engine

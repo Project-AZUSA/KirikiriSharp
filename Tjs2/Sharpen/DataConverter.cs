@@ -49,7 +49,7 @@ namespace Tjs2.Sharpen {
 #if MONO_DATACONVERTER_PUBLIC
 	unsafe public abstract class DataConverter {
 #else
-	unsafe internal abstract class DataConverter {
+	internal abstract unsafe class DataConverter {
 
 // Disables the warning: CLS compliance checking will not be performed on
 //  `XXXX' because it is not visible from outside this assembly
