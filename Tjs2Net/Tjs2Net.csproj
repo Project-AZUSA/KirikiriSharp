@@ -4,6 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <Company>Project AZUSA</Company>
     <PackageProjectUrl>https://github.com/Project-AZUSA/KirikiriSharp</PackageProjectUrl>
+    <RootNamespace>Tjs2</RootNamespace>
+    <Authors>planetarian; Ulysses</Authors>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

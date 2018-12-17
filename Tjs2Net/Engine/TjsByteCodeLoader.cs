@@ -82,7 +82,7 @@ namespace Tjs2
         {
             public InterCodeObject[] mObjs;
 
-            public AList<VariantRepalace> mWork;
+            public AList<VariantReplace> mWork;
 
             public int[] mParent;
 
@@ -106,7 +106,7 @@ namespace Tjs2
                 }
                 if (mWork == null)
                 {
-                    mWork = new AList<VariantRepalace>();
+                    mWork = new AList<VariantReplace>();
                 }
                 mWork.Clear();
                 if (mObjs == null || mObjs.Length < count)
@@ -251,13 +251,13 @@ namespace Tjs2
         }
 
         /// <summary>InterCodeObject へ置换するために一时的に觉えておくクラス</summary>
-        internal class VariantRepalace
+        internal class VariantReplace
         {
             public Variant Work;
 
             public int Index;
 
-            public VariantRepalace(Variant w, int i)
+            public VariantReplace(Variant w, int i)
             {
                 Work = w;
                 Index = i;
@@ -281,7 +281,7 @@ namespace Tjs2
 
             mObjectsCache.Create(objcount);
             InterCodeObject[] objs = mObjectsCache.mObjs;
-            AList<VariantRepalace> work = mObjectsCache.mWork;
+            AList<VariantReplace> work = mObjectsCache.mWork;
             int[] parent = mObjectsCache.mParent;
             int[] propSetter = mObjectsCache.mPropSetter;
             int[] propGetter = mObjectsCache.mPropGetter;
@@ -373,7 +373,7 @@ namespace Tjs2
                         case TYPE_INTER_OBJECT:
                         {
                             tmp = new Variant();
-                            work.AddItem(new VariantRepalace(tmp, index));
+                            work.AddItem(new VariantReplace(tmp, index));
                             vdata[i] = tmp;
                             break;
                         }
@@ -381,7 +381,7 @@ namespace Tjs2
                         case TYPE_INTER_GENERATOR:
                         {
                             tmp = new Variant();
-                            work.AddItem(new VariantRepalace(tmp, index));
+                            work.AddItem(new VariantReplace(tmp, index));
                             vdata[i] = tmp;
                             break;
                         }
@@ -509,7 +509,7 @@ namespace Tjs2
             }
             for (int i = 0; i < work.Count; i++)
             {
-                VariantRepalace w = work[i];
+                VariantReplace w = work[i];
                 w.Work.Set(objs[w.Index]);
             }
             work.Clear();
