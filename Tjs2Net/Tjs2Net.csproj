@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Company>Project AZUSA</Company>
+    <PackageProjectUrl>https://github.com/Project-AZUSA/KirikiriSharp</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -12,6 +14,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
-  <Import Project="..\Tjs2\Tjs2.projitems" Label="Shared" />
+  <ItemGroup>
+    <Compile Remove="NativeApi\Internal\DateClass.cs" />
+  </ItemGroup>
 
 </Project>

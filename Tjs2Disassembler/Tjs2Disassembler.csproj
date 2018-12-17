@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Tjs2Win32\Tjs2Win32.csproj">
-      <Project>{37480026-F759-4936-B229-A5883664365D}</Project>
-      <Name>Tjs2Win32</Name>
+    <ProjectReference Include="..\Tjs2Net\Tjs2Net.csproj">
+      <Project>{dbf7929f-382b-435d-81d4-1145279b5d1f}</Project>
+      <Name>Tjs2Net</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
