@@ -406,7 +406,7 @@ namespace Tjs2
 
                         case TYPE_BYTE:
                         {
-                            vdata[i] = new Variant(barray[index]);
+                            vdata[i] = new Variant((sbyte)barray[index]);
                             break;
                         }
 
